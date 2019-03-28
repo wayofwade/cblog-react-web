@@ -1,0 +1,8 @@
+.myTable{
+    max-height: 600px;
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    text-align: center;
+    color:#409eff;
+}

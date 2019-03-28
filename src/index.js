@@ -1,12 +1,14 @@
 // 主文件
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './main.css'
-import App from './App';
+import './styles/index.css';
+import './styles/main.css'
+import 'antd/dist/antd.css';
+import App from './components/app/App';
 import {  HashRouter, Route, Switch} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import myChart from './components/chart.js'
+import table from './components/table/table.js'
 
 // 配置路由
 ReactDOM.render(
@@ -14,6 +16,7 @@ ReactDOM.render(
     <Switch>
     <Route exact path="/" component={App}/>
     <Route path="/myChart" component={myChart}/>
+    <Route path="/table" component={table}/>
     </Switch>
   </HashRouter>
 , document.getElementById('root'));
