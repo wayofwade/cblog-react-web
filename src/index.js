@@ -9,6 +9,7 @@ import {  HashRouter, Route, Switch} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import myChart from './components/chart.js'
 import table from './components/table/table.js'
+import form from './components/form/form.js'
 
 // 配置路由
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
     <Route exact path="/" component={App}/>
     <Route path="/myChart" component={myChart}/>
     <Route path="/table" component={table}/>
+    <Route path="/form" component={form}/>
     </Switch>
   </HashRouter>
 , document.getElementById('root'));
