@@ -1,4 +1,4 @@
-// 主文件
+// 主文件 启动：npm run start
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
@@ -9,6 +9,7 @@ import {  HashRouter, Route, Switch} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import myChart from './components/chart.js'
 import table from './components/table/table.js'
+import tableWithBtn from './components/table/tableWithBtn.js'
 import form from './components/form/form.js'
 
 // 配置路由
@@ -18,6 +19,7 @@ ReactDOM.render(
     <Route exact path="/" component={App}/>
     <Route path="/myChart" component={myChart}/>
     <Route path="/table" component={table}/>
+    <Route path="/tableWithBtn" component={tableWithBtn}/>
     <Route path="/form" component={form}/>
     </Switch>
   </HashRouter>
