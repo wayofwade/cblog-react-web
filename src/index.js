@@ -11,6 +11,7 @@ import myChart from './components/chart.js'
 import table from './components/table/table.js'
 import tableWithBtn from './components/table/tableWithBtn.js'
 import form from './components/form/form.js'
+import todoList from './components/test/todoList/app.js'
 
 // 配置路由
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
     <Route path="/table" component={table}/>
     <Route path="/tableWithBtn" component={tableWithBtn}/>
     <Route path="/form" component={form}/>
+    <Route path="/todoList" component={todoList}/>
     </Switch>
   </HashRouter>
 , document.getElementById('root'));
