@@ -1,6 +1,6 @@
 import React from 'react'
 import './table.css'
-import {Table, Icon} from 'antd'
+import {Table} from 'antd'
 
 export default class myTable extends React.Component {
     constructor(props) {
@@ -8,6 +8,10 @@ export default class myTable extends React.Component {
         this.state = {
             tDate: [],
             selectedRowKeys: []
+        }
+        if (props.location && props.location.state) {
+          const params = props.location.state.data || 'none'
+          console.error('路由穿参数的', params)
         }
     }
 
@@ -54,7 +58,7 @@ export default class myTable extends React.Component {
             width: '20%',
             dataIndex: 'remark',
             render(text) {
-                return <a href={text} target="_blank">博客园</a>
+                return <a href={text} rel="noopener noreferrer" target="_blank">博客园</a>
             }
         }, {
             title: '操作',
@@ -81,7 +85,7 @@ export default class myTable extends React.Component {
         }
 
         return (
-          <div class="myTable">
+          <div className="myTable">
               <div>
                   <h3>
                   表格的标题

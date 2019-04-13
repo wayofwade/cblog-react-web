@@ -14,6 +14,8 @@ import form from './components/form/form.js'
 import todoList from './components/test/todoList/app.js'
 import number from './components/test/addNumber/number.js'
 import myMenu from './components/menu/menu.js'
+import fatherSon from './components/test/fatherSon/index.js'
+import testRoute from './components/test/route/index.js'
 
 // 配置路由
 ReactDOM.render(
@@ -27,6 +29,8 @@ ReactDOM.render(
     <Route path="/todoList" component={todoList}/>
     <Route path="/number" component={number}/>
     <Route path="/myMenu" component={myMenu}/>
+    <Route path="/fatherSon" component={fatherSon}/>
+    <Route path="/testRoute" component={testRoute}/>
     </Switch>
   </HashRouter>
 , document.getElementById('root'));

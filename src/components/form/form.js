@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, Input, Select, Checkbox, DatePicker, Col, Radio, Button, Modal, message } from 'antd'
 
-const FormItem = Form.Item
 const Option = Select.Option
 const RadioGroup = Radio.Group
 
