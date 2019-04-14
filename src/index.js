@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 import App from './components/app/App';
 import {  HashRouter, Route, Switch} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
-import myChart from './components/chart.js'
+import myChart from './components/echart/chart.js'
 import table from './components/table/table.js'
 import tableWithBtn from './components/table/tableWithBtn.js'
 import form from './components/form/form.js'
@@ -28,7 +28,9 @@ ReactDOM.render(
     <Route path="/form" component={form}/>
     <Route path="/todoList" component={todoList}/>
     <Route path="/number" component={number}/>
-    <Route path="/myMenu" component={myMenu}/>
+
+    <Route path="/myMenu" component={myMenu}>
+    </Route>
     <Route path="/fatherSon" component={fatherSon}/>
     <Route path="/testRoute" component={testRoute}/>
     </Switch>
