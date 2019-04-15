@@ -16,6 +16,7 @@ import number from './components/test/addNumber/number.js'
 import myMenu from './components/menu/menu.js'
 import fatherSon from './components/test/fatherSon/index.js'
 import testRoute from './components/test/route/index.js'
+import redux from './components/test/redux/testRedux.js'
 
 // 配置路由
 ReactDOM.render(
@@ -28,6 +29,7 @@ ReactDOM.render(
     <Route path="/form" component={form}/>
     <Route path="/todoList" component={todoList}/>
     <Route path="/number" component={number}/>
+    <Route path="/redux" component={redux}/>
 
     <Route path="/myMenu" component={myMenu}>
     </Route>
