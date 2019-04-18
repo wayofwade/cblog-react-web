@@ -1,53 +1,20 @@
-/**
- * @Description:
- * @params:
- * @return:
- * Created by chencc on 2019/4/15.
- */
+/*
+* 测试的入口文件
+* */
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-
-/**
- * This is a reducer, a pure function with (state, action) => state signature.
- * It describes how an action transforms the state into the next state.
- *
- * The shape of the state is up to you: it can be a primitive, an array, an object,
- * or even an Immutable.js data structure. The only important part is that you should
- * not mutate the state object, but return a new object if the state changes.
- *
- * In this example, we use a `switch` statement and strings, but you can use a helper that
- * follows a different convention (such as function maps) if it makes sense for your
- * project.
- */
-function counter(state = 0, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      console.error('redux', state)
-      return state + 1
-    case 'DECREMENT':
-      console.error('redux', state)
-      return state - 1
-    default:
-      console.error('redux', state)
-      return state
+import rootReducer from './reducers'
+import App from './components/App'
+const store = createStore(rootReducer)
+export default class ruduxIndex extends React.Component {
+  render() { // 每次更新组件都是重新render。所以定义便刘昂需要在构造方法里面
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
   }
+
 }
-
-// Create a Redux store holding the state of your app.
-// Its API is { subscribe, dispatch, getState }.
-let store = createStore(counter)
-
-// You can use subscribe() to update the UI in response to state changes.
-// Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
-// However it can also be handy to persist the current state in the localStorage.
-
-store.subscribe(() => console.log(store.getState()))
-
-// The only way to mutate the internal state is to dispatch an action.
-// The actions can be serialized, logged or stored and later replayed.
-// store.dispatch({ type: 'INCREMENT' })
-// 1
-// store.dispatch({ type: 'INCREMENT' })
-// 2
-// store.dispatch({ type: 'DECREMENT' })
-// 1
-export default store

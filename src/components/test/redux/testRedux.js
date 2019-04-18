@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import load from 'lodash';
-import store from './index.js'
+import store from './indexRedux.js'
 
 const todos = [
   {

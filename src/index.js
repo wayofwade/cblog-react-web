@@ -17,6 +17,7 @@ import myMenu from './components/menu/menu.js'
 import fatherSon from './components/test/fatherSon/index.js'
 import testRoute from './components/test/route/index.js'
 import redux from './components/test/redux/testRedux.js'
+import reduxIndex from './components/test/redux/index.js'
 
 // 配置路由
 ReactDOM.render(
@@ -30,6 +31,7 @@ ReactDOM.render(
     <Route path="/todoList" component={todoList}/>
     <Route path="/number" component={number}/>
     <Route path="/redux" component={redux}/>
+    <Route path="/reduxIndex" component={reduxIndex}/>
 
     <Route path="/myMenu" component={myMenu}>
     </Route>
