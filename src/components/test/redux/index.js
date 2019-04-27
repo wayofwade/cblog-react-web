@@ -1,5 +1,9 @@
 /*
 * 测试的入口文件
+* 1-这个文件引入了reducers
+* 2-reducers引入了action、
+* 3-action触发会引发reducers的方法调用
+* 4-通过reducers调用store的值
 * */
 import React from 'react'
 import { render } from 'react-dom'

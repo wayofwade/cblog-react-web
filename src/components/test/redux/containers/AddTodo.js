@@ -6,7 +6,7 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addTodo } from '../actions' // actions的主文件
 
 const AddTodo = ({ dispatch }) => {
   let input
@@ -19,12 +19,12 @@ const AddTodo = ({ dispatch }) => {
           if (!input.value.trim()) {
             return
           }
-          dispatch(addTodo(input.value))
+          dispatch(addTodo(input.value)) // 类似于vuex的dispatch
           input.value = ''
         }}
       >
         <input ref={node => (input = node)} />
-        <button type="submit">Add Todo</button>
+        <button type="submit">添加todo的方法</button>
       </form>
     </div>
   )

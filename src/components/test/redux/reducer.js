@@ -23,15 +23,18 @@ function visibilityFilter(state = SHOW_ALL, action) {
 }
 
 function todos(state = [], action) {
+  console.log('---reducer总文件里面的方法---')
   switch (action.type) {
     case ADD_TODO:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
+      let li = [
+          ...state,
+          {
+              text: action.text,
+              completed: false
+          }
       ]
+      console.log('reducer总文件里面的方法', state)
+      return li
     case TOGGLE_TODO:
       return state.map((todo, index) => {
         if (index === action.index) {
