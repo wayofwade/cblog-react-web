@@ -24,7 +24,7 @@ import index from './components/index/index.js'
 ReactDOM.render(
   <HashRouter>
     <Switch>
-    <Route exact path="/" component={App}/>
+    <Route exact path="/" component={myMenu}/>
     <Route path="/myChart" component={myChart}/>
     <Route path="/table" component={table}/>
     <Route path="/tableWithBtn" component={tableWithBtn}/>

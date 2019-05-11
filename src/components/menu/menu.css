@@ -1,14 +1,29 @@
-.main-div{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+#components-layout-demo-custom-trigger .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color .3s;
 }
-.left{
-    width: 260px;
-    background-color: #e9e9e9;
+
+#components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
 }
-.right {
-    flex: 1;
-    background-color: lightgoldenrodyellow;
+
+#components-layout-demo-custom-trigger .logo {
+    height: 32px;
+    background: rgba(255,255,255,.2);
+    margin: 16px;
+}
+#components-layout-demo-side .logo {
+    height: 32px;
+    background: rgba(255,255,255,.2);
+    margin: 16px;
+}
+.all-height{
+    height: 100%;
+}
+.head-img{
+    position: absolute;
+    right: 30px;
 }
