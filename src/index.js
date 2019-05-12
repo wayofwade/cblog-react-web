@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
+import './styles/index.less';
 import './styles/main.css'
 import 'antd/dist/antd.css';
 import App from './components/app/App';
@@ -13,7 +14,7 @@ import tableWithBtn from './components/table/tableWithBtn.js'
 import form from './components/form/form.js'
 import todoList from './components/test/todoList/app.js'
 import number from './components/test/addNumber/number.js'
-import myMenu from './components/menu/menu.js'
+import myMenu from './components/menu/index.js'
 import fatherSon from './components/test/fatherSon/index.js'
 import testRoute from './components/test/route/index.js'
 import redux from './components/test/redux/testRedux.js'

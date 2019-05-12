@@ -2,33 +2,28 @@
  * Created by Administrator on 2019/5/11.
  */
 import React from 'react'
-import { Layout, Menu, Icon, Breadcrumb } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import './menu.css'
+import SiderCustom from './SiderCustom.jsx'
 
-const { Header, Sider, Content } = Layout;
+
+const { Sider } = Layout;
 
 const SubMenu = Menu.SubMenu
 
 
-export default class IndexMenu extends React.Component {
+export default class LeftMenu extends React.Component {
     state = {
-        collapsed: false,
     };
-
-    toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    }
 
     render() {
         return (
-            <Layout className="all-height">
-                <Sider
+            <SiderCustom  collapsed={this.props.collapsed}/>
+/*                <Sider
                     className="all-height"
                     trigger={null}
                     collapsible
-                    collapsed={this.state.collapsed}
+                    collapsed={this.props.collapsed}
                 >
                     <div className="logo" />
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
@@ -60,27 +55,7 @@ export default class IndexMenu extends React.Component {
                             <span>File</span>
                         </Menu.Item>
                     </Menu>
-                </Sider>
-                <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }}>
-                        <Icon
-                            className="trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                        />
-                    </Header>
-                    <Content style={{
-                        margin: '24px 16px', padding: '12px 24px', background: '#fff', minHeight: 280,
-                    }}
-                    >
-                        <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                        </Breadcrumb>
-                        Content
-                    </Content>
-                </Layout>
-            </Layout>
+                </Sider>*/
         );
     }
 }
