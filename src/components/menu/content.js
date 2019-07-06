@@ -16,7 +16,7 @@ export default class IndexMenu extends React.Component {
         const menu = (
             <Menu>
                 <Menu.Item key="0">
-                    <a href="http://www.alipay.com/">1st menu item</a>
+                    <a href="http://www.alipay.com/">2221st menu item</a>
                 </Menu.Item>
                 <Menu.Item key="1">
                     2nd menu item

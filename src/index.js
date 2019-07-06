@@ -9,7 +9,7 @@ import App from './components/app/App';
 import {  HashRouter, Route, Switch} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import myChart from './components/echart/chart.js'
-import table from './components/table/table.js'
+import table from './components/table/BasicTable.js'
 import tableWithBtn from './components/table/tableWithBtn.js'
 import form from './components/form/form.js'
 import todoList from './components/test/todoList/app.js'
@@ -21,27 +21,17 @@ import redux from './components/test/redux/testRedux.js'
 import reduxIndex from './components/test/redux/index.js'
 import index from './components/index/index.js'
 
+import Page from './Page';
+import { AppContainer } from 'react-hot-loader';
+import { AlitaProvider, setConfig } from 'redux-alita';
+
 // 配置路由
 ReactDOM.render(
-  <HashRouter>
-    <Switch>
-    <Route exact path="/" component={myMenu}/>
-    <Route path="/myChart" component={myChart}/>
-    <Route path="/table" component={table}/>
-    <Route path="/tableWithBtn" component={tableWithBtn}/>
-    <Route path="/form" component={form}/>
-    <Route path="/todoList" component={todoList}/>
-    <Route path="/number" component={number}/>
-    <Route path="/redux" component={redux}/>
-    <Route path="/reduxIndex" component={reduxIndex}/>
-    <Route path="/index" component={index}/>
-
-    <Route path="/myMenu" component={myMenu}>
-    </Route>
-    <Route path="/fatherSon" component={fatherSon}/>
-    <Route path="/testRoute" component={testRoute}/>
-    </Switch>
-  </HashRouter>
+    <AppContainer>
+        <AlitaProvider>
+            <Page />
+        </AlitaProvider>
+    </AppContainer>
 , document.getElementById('root'));
 // ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -49,3 +39,23 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+/* <HashRouter>
+ <Switch>
+ <Route exact path="/" component={myMenu}/>
+ <Route path="/myChart" component={myChart}/>
+ <Route path="/table" component={table}/>
+ <Route path="/tableWithBtn" component={tableWithBtn}/>
+ <Route path="/form" component={form}/>
+ <Route path="/todoList" component={todoList}/>
+ <Route path="/number" component={number}/>
+ <Route path="/redux" component={redux}/>
+ <Route path="/reduxIndex" component={reduxIndex}/>
+ <Route path="/index" component={index}/>
+
+ <Route path="/myMenu" component={myMenu}>
+ </Route>
+ <Route path="/fatherSon" component={fatherSon}/>
+ <Route path="/testRoute" component={testRoute}/>
+ </Switch>
+ </HashRouter>*/

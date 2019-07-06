@@ -17,6 +17,7 @@ export default class LeftMenu extends React.Component {
     };
 
     render() {
+        console.log('wwww')
         return (
             <SiderCustom  collapsed={this.props.collapsed}/>
 /*                <Sider

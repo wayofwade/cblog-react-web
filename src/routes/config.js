@@ -25,9 +25,9 @@ export default {
             ],
         },
         {
-            key: '/app/table', title: '表格', icon: 'copy',
+            key: '/components/table', title: '表格', icon: 'copy',
             subs: [
-                { key: '/app/table/basicTable', title: '基础表格', component: 'BasicTable'},
+                { key: 'components/table/BasicTable', title: '基础表格', component: 'BasicTable'},
                 { key: '/app/table/advancedTable', title: '高级表格', component: 'AdvancedTable'},
                 { key: '/app/table/asynchronousTable', title: '异步表格', component: 'AsynchronousTable'},
             ],

@@ -1,10 +1,11 @@
 /**
- * Created by 叶子 on 2017/8/13.
+ * 每次路由跳转回经过这个文件，
+ * 寻找对应的路由文件跳转
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import DocumentTitle from 'react-document-title';
-// import AllComponents from '../components';
+import AllComponents from '../components'; // 路由在这个文件指定
 import routesConfig from './config';
 import queryString from 'query-string';
 
@@ -13,18 +14,21 @@ export default class CRouter extends Component {
         const { auth } = this.props;
         const { permissions } = auth.data;
         // const { auth } = store.getState().httpData;
-        if (!permissions || !permissions.includes(permission)) return <Redirect to={'404'} />;
+        // if (!permissions || !permissions.includes(permission)) return <Redirect to={'404'} />;
         return component;
     };
     requireLogin = (component, permission) => {
         const { auth } = this.props;
         const { permissions } = auth.data;
-        if (process.env.NODE_ENV === 'production' && !permissions) { // 线上环境判断是否登录
+       /* if (process.env.NODE_ENV === 'production' && !permissions) { // 线上环境判断是否登录
             return <Redirect to={'/login'} />;
-        }
-        return permission ? this.requireAuth(permission, component) : component;
+        }*/
+
+        return component
+        // return permission ? this.requireAuth(permission, component) : component;
     };
     render() {
+        console.log(routesConfig)
         return (
             <Switch>
                 {
@@ -41,6 +45,7 @@ export default class CRouter extends Component {
                                             const reg = /\?\S*/g;
                                             // 匹配?及其以后字符串
                                             const queryParams = window.location.hash.match(reg);
+                                            console.log("hello worlsd")
                                             // 去除?的参数
                                             const { params } = props.match;
                                             Object.keys(params).forEach(key => {
@@ -54,9 +59,10 @@ export default class CRouter extends Component {
                                                     <Component {...merge} />
                                                 </DocumentTitle>
                                             )
-                                            return r.login
+                                            return wrappedComponent
+                                            /*return r.login
                                                 ? wrappedComponent
-                                                : this.requireLogin(wrappedComponent, r.auth)
+                                                : this.requireLogin(wrappedComponent, r.auth)*/
                                         }}
                                     />
                                 )

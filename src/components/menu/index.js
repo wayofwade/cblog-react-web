@@ -3,6 +3,7 @@ import { Layout, Menu, Icon, Breadcrumb } from 'antd';
 import './menu.css'
 import '@/styles/scroll.less';
 import LeftMenu from './leftMenu.js'
+import Routes from '../../routes';
 import TopHead from './header.js'
 import RightContent from './content.js'
 const { Content } = Layout;
@@ -23,6 +24,7 @@ export default class IndexMenu extends React.Component {
     }
 
     render() {
+        const { auth = { data: {} }, responsive = { data: {} } } = this.props;
         return (
             <Layout className="all-height">
                 <LeftMenu collapsed={this.state.collapsed}/>
@@ -36,7 +38,7 @@ export default class IndexMenu extends React.Component {
                         <Breadcrumb.Item>User</Breadcrumb.Item>
                         <Breadcrumb.Item>Bill</Breadcrumb.Item>
                     </Breadcrumb>
-                  <RightContent/>
+                    <Routes auth={auth} />
                 </Content>
               </Layout>
             </Layout>

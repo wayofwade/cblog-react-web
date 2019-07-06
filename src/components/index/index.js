@@ -46,7 +46,7 @@ export default class indexMenu extends React.Component {
                         defaultSelectedKeys={['1']}
                         defaultOpenKeys={['sub1']}
                         mode="inline"
-                        theme="dark"
+                        theme="light"
                         inlineCollapsed={this.state.collapsed}
                     >
                         <Menu.Item key="1">

@@ -1,10 +1,10 @@
 /**
- * Created by hao.cheng on 2017/4/13.
+ * 侧边栏
  */
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { withRouter } from 'react-router-dom';
-import routes from '../../routes/config';
+import routes from '../routes/config';
 import SiderMenu from './SiderMenu';
 
 const { Sider } = Layout;
@@ -67,10 +67,8 @@ class SiderCustom extends Component {
             <Sider
                 trigger={null}
                 breakpoint="lg"
-                theme="dark"
-                collapsed={this.props.collapsed}
+                collapsed={collapsed}
                 style={{ overflowY: 'auto' }}
-                className="left-side"
             >
                 <div className="logo" />
                 <SiderMenu
@@ -80,7 +78,6 @@ class SiderCustom extends Component {
                     selectedKeys={[selectedKey]}
                     openKeys={firstHide ? null : [openKey]}
                     onOpenChange={this.openMenu}
-                    className="item-menu"
                 />
                 <style>
                     {`
