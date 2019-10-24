@@ -1,6 +1,6 @@
 export default {
     menus: [ // 菜单相关路由
-        { key: '/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
+        { key: '/app/dashboard/index', title: '首页111', icon: 'mobile', component: 'Dashboard' },
         {
             key: '/app/ui', title: 'UI', icon: 'scan',
             subs: [
@@ -66,6 +66,8 @@ export default {
             key: '/app/extension', title: '功能扩展', icon: 'bars',
             subs: [
                 { key: '/app/extension/queryParams', title: '问号形式参数', component: 'QueryParams', query: '?param1=1&param2=2' },
+                { key: '/app/extension/user', title: '用户管理', component: 'User', query: '?param1=1&param2=2' },
+                { key: '/app/extension/queryParams1', title: '角色管理', component: 'Role', query: '?param1=1&param2=2' },
             ],
         },
     ],
