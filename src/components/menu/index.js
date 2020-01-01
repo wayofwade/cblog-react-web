@@ -1,7 +1,7 @@
 import React from 'react'
 import { Layout, Menu, Icon, Breadcrumb } from 'antd';
 import './menu.css'
-import '@/styles/scroll.less';
+import '@src/styles/scroll.less';
 import LeftMenu from './leftMenu.js'
 import Routes from '../../routes';
 import TopHead from './header.js'

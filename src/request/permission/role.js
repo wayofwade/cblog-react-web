@@ -1,4 +1,4 @@
-import axiosObj from '@/axios/dataRequest'
+import axiosObj from '@src/axios/dataRequest'
 
 
 const role = {

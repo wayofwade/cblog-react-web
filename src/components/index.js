@@ -8,11 +8,13 @@
 import BasicTable from './table/BasicTable';
 import Dashboard from './dashboard/Dashboard';
 // import User from '@src/components/permission/user/user.js'
-import User from './permission/user/user.js'
+import User from '@src/components/permission/user/user'
 
-import Role from '@/components/permission/role/role'
+import Role from '@src/components/permission/role/role'
+import Menu from '@src/components/permission/menu/menu'
+import Operate from '@src/components/permission/operate/operate'
 
 
 export default {
-    BasicTable, Dashboard, User, Role
+    BasicTable, Dashboard, User, Role, Menu, Operate
 }

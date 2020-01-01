@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2019/10/13.
  */
-import axiosObj from '@/axios/dataRequest'
+import axiosObj from '@src/axios/dataRequest'
 
 
 const user = {

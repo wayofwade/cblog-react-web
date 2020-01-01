@@ -4,7 +4,7 @@
 import React from 'react'
 import { Layout, Menu, Icon, Dropdown } from 'antd';
 import './menu.css'
-import avater from '@/assets/imgs/b1.jpg';
+import avater from '@src/assets/imgs/b1.jpg';
 
 const { Header } = Layout;
 

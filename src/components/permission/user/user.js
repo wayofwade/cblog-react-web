@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Table, Form, Select, Button, Divider, Popconfirm, Modal, Input, message, Pagination, Transfer} from 'antd'
-import user from '@/request/permission/user/user'
-import role from '@/request/permission/role/role'
+import user from '@src/request/permission/user'
+import role from '@src/request/permission/role'
 import userCss from './style/user.module.css'
 const {Option} = Select;
 
@@ -202,7 +202,7 @@ class userForm extends Component {
         let end = start + 10
         let form = {
             start: start,
-            end: end,
+            size: 10,
             status: status
         }
         user.getUsers(form).then((res) => {
