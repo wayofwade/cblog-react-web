@@ -25,12 +25,13 @@ class userForm extends Component {
                 index: 1,
                 size: 10
             },
-            user: {}
+            user: {},
+            isAddStatus: true // 默认是添加的状态
         }
     }
 
     componentWillMount() {
-        this.getMock();
+        // this.getMock();
         this.onSearch()
     }
 
@@ -130,43 +131,38 @@ class userForm extends Component {
             }
         });
     }
+
+    /**
+     * 添加用户或者编辑用户点击确定
+     * @param formData
+     */
     handleOk = (formData) => { // 确定
-        this.setState({loading: true});
-        let {mockData, targetKeys, ridList} = this.state
-        console.log(mockData, targetKeys)
-        console.log(ridList)
-        this.setState({loading: false});
-        // 求出addList  delList
-        let addList = []
-        let delList = []
-        addList = targetKeys.filter((item, index) => {
-            return ridList.indexOf(item) === -1
-        })
-        delList = ridList.filter((item, index) => {
-            return targetKeys.indexOf(item) === -1
-        })
-        let data = {
-            user: formData,
-            ridList: targetKeys,
-            addList: addList,
-            delList: delList
+        const {isAddStatus} = this.state
+
+        console.log(formData)
+        if (isAddStatus) {
+            let data = {
+                username: formData.username,
+                password: formData.password
+            }
+            user.addUser(data).then((res) =>{
+                message.success('操作成功')
+                this.setState({
+                    visible: false,
+                });
+                this.onSearch()
+            })
         }
-        user.addUser(data).then((res) => {
-            message.success('操作成功')
-            this.setState({loading: false, visible: false});
-            this.onSearch()
-        }).catch((error) => {
-            console.log(error)
-        })
+
     };
     handleCancel = () => { // 取消
         this.setState({visible: false});
     };
 
     handleDelete(row) {
-        const status = row.user.status === '1' ? '0' : '1'
+        const status = row.status === '1' ? '0' : '1'
         let params = {
-            uid: row.user.uid,
+            uid: row.uid,
             status: status
         }
         user.delUser(params).then((res) => {
@@ -228,7 +224,7 @@ class userForm extends Component {
                 key: 'uid',
                 render: (text, record) => (
                     <span>
-            {record.user.uid}
+            {record.uid}
           </span>
                 )
             },
@@ -237,7 +233,7 @@ class userForm extends Component {
                 key: 'username',
                 render: (text, record) => (
                     <span>
-            {record.user.username}
+            {record.username}
           </span>
                 )
             },
@@ -246,7 +242,7 @@ class userForm extends Component {
                 key: 'password',
                 render: (text, record) => (
                     <span>
-            {record.user.password}
+            {record.password}
           </span>
                 )
             },
@@ -255,7 +251,7 @@ class userForm extends Component {
                 key: 'createTime',
                 render: (text, record) => (
                     <span>
-            {record.user.createTime}
+            {record.createTime}
           </span>
                 )
             },
@@ -264,7 +260,7 @@ class userForm extends Component {
                 key: 'updateTime',
                 render: (text, record) => (
                     <span>
-            {record.user.updateTime}
+            {record.updateTime}
           </span>
                 )
             },
@@ -273,7 +269,7 @@ class userForm extends Component {
                 key: 'status',
                 render: (text, record) => (
                     <span>
-            {record.user.status === '1' ? '正常' : '已删除'}
+            {record.status === '1' ? '正常' : '已删除'}
           </span>
                 )
             },
@@ -284,10 +280,10 @@ class userForm extends Component {
                     <span>
             <Button size="small" type="primary" onClick={this.editForm.bind(this, record)}>修改</Button>
             <Divider type="vertical"/>
-            <Popconfirm cancelText="取消" okText="确认" title={record.user.status === '1' ? '确认删除此数据吗' : '确认恢复此数据吗'}
+            <Popconfirm cancelText="取消" okText="确认" title={record.status === '1' ? '确认删除此数据吗' : '确认恢复此数据吗'}
                         onConfirm={() => this.handleDelete(record)}>
               <Button size="small"
-                      type={record.user.status === '1' ? 'danger' : 'primary'}>{record.user.status === '1' ? '删除' : '恢复'}</Button>
+                      type={record.status === '1' ? 'danger' : 'primary'}>{record.status === '1' ? '删除' : '恢复'}</Button>
             </Popconfirm>
           </span>
                 ),
