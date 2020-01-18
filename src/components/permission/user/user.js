@@ -77,10 +77,16 @@ class userForm extends Component {
     successMessage = () => {
         message.success('操作成功');
     }
-    editForm = (formData) => { // 编辑的时候设置用户信息
-        const ridList = formData.ridList
+
+    /**
+     * 编辑按钮
+     */
+    editForm = (formData) => {
+        this.setState({
+            isAddStatus: false
+        })
         console.log(formData)
-        const newUser = formData.user
+        const newUser = formData
         // 清空选择
         let mockData = this.state.mockData
         mockData = mockData.map((item, index) => {
@@ -88,10 +94,7 @@ class userForm extends Component {
             return item
         })
         this.setState({
-            user: newUser,
-            targetKeys: ridList,
-            ridList: ridList,
-            mockData: mockData
+            user: newUser
         })
         this.props.form.setFieldsValue({
             username: newUser.username,
@@ -152,6 +155,19 @@ class userForm extends Component {
                 });
                 this.onSearch()
             })
+        } else {
+            let data = {
+                username: formData.username,
+                password: formData.password,
+                uid: formData.uid
+            }
+            user.addUser(data).then((res) =>{
+                message.success('操作成功')
+                this.setState({
+                    visible: false,
+                });
+                this.onSearch()
+            })
         }
 
     };
@@ -162,7 +178,7 @@ class userForm extends Component {
     handleDelete(row) {
         const status = row.status === '1' ? '0' : '1'
         let params = {
-            uid: row.uid,
+            id: row.uid,
             status: status
         }
         user.delUser(params).then((res) => {
@@ -312,149 +328,78 @@ class userForm extends Component {
                 添加
               </Button>
             </span>
-
                     </div>
-
                     <div className="table-div">
-
                         <Table pagination={false} dataSource={this.state.tableList} columns={columns}>
-
                         </Table>
-
                         <div className="page-div">
-
                             <Pagination
-
                                 onChange={this.changePage.bind(this)}
-
                                 className="page"
-
                                 current={this.state.page.index}
-
                                 total={this.state.page.total}
-
                                 showTotal={total => `共 ${total} 条`}
-
                                 pageSize={this.state.page.size}
-
                                 defaultCurrent={this.state.page.index}
-
                             />
-
                         </div>
-
                     </div>
-
                 </div>
 
-
                 <div>
-
                     <Modal
-
                         width={750}
-
                         visible={visible}
-
                         title="新增"
-
                         onOk={this.beforeHandleOk}
-
                         onCancel={this.handleCancel}
-
                         footer={[
-
                             <Button key="back" onClick={this.handleCancel}>
-
                                 取消
-
                             </Button>,
-
                             <Button key="submit" type="primary" loading={loading} onClick={this.beforeHandleOk}>
-
                                 确认
-
                             </Button>,
-
                         ]}
-
                     >
-
                         <div className="margin-top-5">
-
-
                             <Form labelCol={{span: 5}} wrapperCol={{span: 12}}>
-
                                 <Form.Item label="用户名">
-
                                     {getFieldDecorator('username', {
-
                                         rules: [{required: true, message: '请输入'}],
-
                                     })(<Input className="short-input" placeholder="请输入"/>)}
-
                                 </Form.Item>
-
-
                                 <Form.Item label="密码">
-
                                     {getFieldDecorator('password', {
-
                                         rules: [{required: true, message: '请输入'}],
-
                                     })(<Input
-
                                         className="short-input" placeholder="请输入"/>)}
-
                                 </Form.Item>
-
                             </Form>
 
-
                             <div>所属角色</div>
-
                             <Transfer
-
                                 listStyle={{
-
                                     width: 300,
-
                                     height: 300,
-
                                     textAlign: 'left'
-
                                 }}
 
                                 dataSource={this.state.mockData}
-
                                 showSearch
-
                                 filterOption={this.filterOption}
-
                                 targetKeys={this.state.targetKeys}
-
                                 onChange={this.handleChange}
-
                                 onSearch={this.handleSearch}
-
                                 render={item => item.title}
-
                             />
-
                         </div>
-
                     </Modal>
-
                 </div>
-
             </div>
-
         )
-
     }
-
 }
 
 userForm = Form.create({})(userForm);
-
 export default userForm
