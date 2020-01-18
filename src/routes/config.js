@@ -66,7 +66,7 @@ export default {
             key: '/app/extension', title: '功能扩展', icon: 'bars',
             subs: [
                 { key: '/app/extension/queryParams', title: '问号形式参数', component: 'QueryParams', query: '?param1=1&param2=2' },
-                { key: '/app/extension/user', title: '用户管理', component: 'User', query: '?param1=1&param2=2' },
+                { key: '/app/extension/user', title: '用户管理', component: 'User', query: '' },
                 { key: '/app/extension/role', title: '角色管理', component: 'Role', query: '?param1=1&param2=2' },
                 { key: '/app/extension/menu', title: '菜单管理', component: 'Menu', query: '?param1=1&param2=2' },
                 { key: '/app/extension/operate', title: '操作管理', component: 'Operate', query: '?param1=1&param2=2' },

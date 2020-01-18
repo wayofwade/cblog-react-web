@@ -20,7 +20,7 @@ const user = {
     delUser(data){
         return axiosObj.post({
             url: '/localApi/permission/user/del',
-            params: data
+            data: data
         })
     },
 }
